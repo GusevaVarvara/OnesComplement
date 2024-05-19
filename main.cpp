@@ -11,13 +11,17 @@ std::string operator-(std::string binary1, std::string binary2) {
     return reverseBinarySubtraction(binary1, binary2);
 }
 
+std::string operator*(std::string binary1, std::string binary2) {
+    return reverseBinaryMultiplication(binary1, binary2);
+}
+
 
 int main() {
-    int num_bits = 8; 
+    int num_bits = 8;
     int num1, num2;
     char operation;
 
-    std::cout << "Enter two numbers and an operation (+, -) between them: ";
+    std::cout << "Enter two numbers and an operation (+, -, *) between them: ";
     std::cin >> num1 >> operation >> num2;
 
     std::string binary1 = toReverseBinary(num1, num_bits);
@@ -30,6 +34,9 @@ int main() {
         break;
     case '-':
         result = binary1 - binary2;
+        break;
+    case '*':
+        result = binary1 * binary2;
         break;
     default:
         std::cout << "Unsupported operation!" << std::endl;
